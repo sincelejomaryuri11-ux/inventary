@@ -168,6 +168,10 @@ export default function Home() {
     else await cargarProductos()
   }
 
+  async function cerrarSesion() {
+  await supabase.auth.signOut()
+  }
+
   return (
     <main className="min-h-screen p-6 max-w-2xl mx-auto pb-24">
       <header className="mb-8">
@@ -189,6 +193,16 @@ export default function Home() {
             <Link href="/agregar" className="bg-[#8B6F52] hover:bg-[#6B5A48] transition-colors text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md" aria-label="Agregar producto">
               <IconMas />
             </Link>
+            <button
+              onClick={cerrarSesion}
+              className="bg-white hover:bg-gray-50 transition-colors text-red-500 rounded-full w-12 h-12 flex items-center justify-center shadow-md border border-gray-100"
+              aria-label="Cerrar sesión"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 17l5-5-5-5M21 12H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </header>
